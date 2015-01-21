@@ -5,7 +5,7 @@ NO MORE MONEY, 1000 runs
 
 Using 4 crashes, game will average 7.632 rounds:
 
-Rounds 		Frequencies	Fraction	Percentage
+Rounds 	Freq	Fraction	Percentage
 2		7		0.007		1%
 3		59		0.059		6%
 4		91		0.091		9%
@@ -32,7 +32,7 @@ Rounds 		Frequencies	Fraction	Percentage
 
 Using 5 crashes, game will average 9.455 rounds:
 
-Rounds 		Frequencies	Fraction	Percentage
+Rounds 	Freq	Fraction	Percentage
 2		1		0.001		0%
 3		12		0.012		1%
 4		42		0.042		4%
@@ -63,7 +63,7 @@ Rounds 		Frequencies	Fraction	Percentage
 
 Using 4 crashes and increasing danger level, game will average 3.632 rounds:
 
-Rounds 		Frequencies	Fraction	Percentage
+Rounds 	Freq	Fraction	Percentage
 1		1		0.001		0%
 2		44		0.044		4%
 3		381		0.381		38%
@@ -75,7 +75,7 @@ Rounds 		Frequencies	Fraction	Percentage
 
 Using 5 crashes and increasing danger level, game will average 4.095 rounds:
 
-Rounds 		Frequencies	Fraction	Percentage
+Rounds 	Freq	Fraction	Percentage
 2		4		0.004		0%
 3		185		0.185		18%
 4		538		0.538		54%
