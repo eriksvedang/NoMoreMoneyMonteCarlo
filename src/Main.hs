@@ -24,7 +24,7 @@ data GameSettings = GameSettings {
 }
 
 main = do
-  let runs = 1000
+  let runs = 1000000
   putStrLn $ "NO MORE MONEY, " ++ show runs ++ " runs"
   printExperiment runs (GameSettings 4 False)
   printExperiment runs (GameSettings 5 False)
@@ -41,15 +41,15 @@ printExperiment runs settings = do
   putStrLn ("Using " ++ show (settingsCrashLimit settings) ++ " crashes" ++
            (if (settingsDangerIncrease settings) then " and increasing danger level" else "") ++
            ", game will average " ++ show average ++ " rounds:\n")
-  putStrLn "Rounds \t\tFrequencies\tFraction\tPercentage"
+  putStrLn "Rounds\tFreq\tFrac\tPercentage"
   mapM_ (printFreq runs) freqs
 
 printFreq :: Int -> (Integer, Int) -> IO ()
 printFreq runs (rounds, freq) = do
   let frac = (fromIntegral freq) / (fromIntegral runs)
-  putStrLn $ show rounds ++ "\t\t" ++
-             show freq ++ "\t\t" ++
-             showFFloat (Just 3) frac "\t\t" ++ 
+  putStrLn $ show rounds ++ "\t" ++
+             show freq ++ "\t" ++
+             showFFloat (Just 3) frac "\t" ++ 
              showFFloat (Just 0) (frac * 100) "%"
 
 runExperiment :: StdGen -> Int -> GameSettings -> [Integer]
@@ -62,7 +62,7 @@ simulateGame settings gameInfo = do
   let gameRound' = 1 + gameRound gameInfo
   crashesThisTurn <- newCrashes (gameDanger gameInfo)
   let gameCrashes' = crashesThisTurn + gameCrashes gameInfo
-  let gameDanger'  = if settingsDangerIncrease settings then 1 + (gameDanger gameInfo) else (gameDanger gameInfo)
+  let gameDanger'  = if settingsDangerIncrease settings && crashesThisTurn == 0 then 1 + (gameDanger gameInfo) else 1
   let gameInfo' = gameInfo {
         gameRound   = gameRound',
         gameCrashes = gameCrashes',
